@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "find-user-posts-in-subreddit",
+  "version": "1.0.0",
+  "description": "Find all posts by a user within a subreddit.",
+  "permissions": [],
+  "host_permissions": [
+    "*://*.reddit.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.reddit.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "styles.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

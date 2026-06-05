@@ -1,0 +1,384 @@
+/* ============================================================
+   find-user-posts-in-subreddit — Styles
+   Apple-minimal design with system color scheme support
+   ============================================================ */
+
+/* ─── Scan Button ────────────────────────────────────────── */
+
+.fup-scan-btn {
+  display: inline-block;
+  margin: 0 0 0 4px;
+  padding: 1px 6px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.5;
+  border: 1px solid;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+  transition: none;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: baseline;
+}
+
+@media (prefers-color-scheme: light) {
+  .fup-scan-btn {
+    background: #ffffff;
+    color: #1a1a1a;
+    border-color: #d0d0d0;
+  }
+  .fup-scan-btn:hover {
+    background: #f0f0f0;
+    border-color: #b0b0b0;
+  }
+  .fup-scan-btn:disabled {
+    opacity: 0.5;
+    cursor: wait;
+    background: #f5f5f5;
+    color: #999;
+    border-color: #e0e0e0;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .fup-scan-btn {
+    background: #1c1c1e;
+    color: #f5f5f5;
+    border-color: #48484a;
+  }
+  .fup-scan-btn:hover {
+    background: #2c2c2e;
+    border-color: #636366;
+  }
+  .fup-scan-btn:disabled {
+    opacity: 0.5;
+    cursor: wait;
+    background: #2c2c2e;
+    color: #666;
+    border-color: #3a3a3c;
+  }
+}
+
+/* ─── Modal Overlay ──────────────────────────────────────── */
+
+.fup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+@media (prefers-color-scheme: light) {
+  .fup-overlay {
+    background: rgba(0, 0, 0, 0.3);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .fup-overlay {
+    background: rgba(0, 0, 0, 0.6);
+  }
+}
+
+/* ─── Modal Container ────────────────────────────────────── */
+
+.fup-modal {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 720px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+@media (prefers-color-scheme: light) {
+  .fup-modal {
+    background: #ffffff;
+    color: #1a1a1a;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .fup-modal {
+    background: #1c1c1e;
+    color: #f5f5f5;
+    border: 1px solid #3a3a3c;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  }
+}
+
+/* ─── Modal Header ───────────────────────────────────────── */
+
+.fup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+@media (prefers-color-scheme: light) {
+  .fup-header {
+    border-bottom: 1px solid #e0e0e0;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .fup-header {
+    border-bottom: 1px solid #3a3a3c;
+  }
+}
+
+.fup-close-btn {
+  background: none;
+  border: none;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-family: inherit;
+}
+
+@media (prefers-color-scheme: light) {
+  .fup-close-btn {
+    color: #666;
+  }
+  .fup-close-btn:hover {
+    background: #f0f0f0;
+    color: #1a1a1a;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .fup-close-btn {
+    color: #98989d;
+  }
+  .fup-close-btn:hover {
+    background: #2c2c2e;
+    color: #f5f5f5;
+  }
+}
+
+/* ─── Modal Body ─────────────────────────────────────────── */
+
+.fup-body {
+  padding: 12px 16px 4px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* ─── Status / Error Messages ────────────────────────────── */
+
+.fup-status {
+  padding: 32px 16px;
+  text-align: center;
+  font-size: 14px;
+  margin: 0;
+}
+
+.fup-error {
+  font-weight: 500;
+}
+
+@media (prefers-color-scheme: light) {
+  .fup-error {
+    color: #d32f2f;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .fup-error {
+    color: #ff5252;
+  }
+}
+
+/* ─── Summary Line ───────────────────────────────────────── */
+
+.fup-summary {
+  padding: 6px 0 10px 0;
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+@media (prefers-color-scheme: light) {
+  .fup-summary {
+    color: #666;
+    border-bottom: 1px solid #e0e0e0;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .fup-summary {
+    color: #98989d;
+    border-bottom: 1px solid #3a3a3c;
+  }
+}
+
+/* ─── Results Table ──────────────────────────────────────── */
+
+.fup-table {
+  display: block;
+  width: 100%;
+}
+
+.fup-row {
+  display: grid;
+  grid-template-columns: 72px 150px 48px 1fr;
+  gap: 0;
+  padding: 6px 0;
+  align-items: center;
+}
+
+@media (prefers-color-scheme: light) {
+  .fup-row {
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .fup-row:last-child {
+    border-bottom: none;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .fup-row {
+    border-bottom: 1px solid #2c2c2e;
+  }
+  .fup-row:last-child {
+    border-bottom: none;
+  }
+}
+
+.fup-cell {
+  padding: 2px 6px;
+  font-size: 12px;
+  line-height: 1.5;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fup-time {
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-color-scheme: light) {
+  .fup-time {
+    color: #666;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .fup-time {
+    color: #98989d;
+  }
+}
+
+.fup-score {
+  text-align: center;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.fup-title a {
+  text-decoration: none;
+  font-weight: 500;
+}
+
+@media (prefers-color-scheme: light) {
+  .fup-title a {
+    color: #1a73e8;
+  }
+  .fup-title a:hover {
+    text-decoration: underline;
+  }
+  .fup-title a:visited {
+    color: #673ab7;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .fup-title a {
+    color: #5c9aff;
+  }
+  .fup-title a:hover {
+    text-decoration: underline;
+  }
+  .fup-title a:visited {
+    color: #b388ff;
+  }
+}
+
+/* ─── Thumbnail ──────────────────────────────────────────── */
+
+.fup-thumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 6px;
+}
+
+.fup-thumb-img {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+@media (prefers-color-scheme: light) {
+  .fup-thumb-img {
+    background: #f0f0f0;
+    border: 1px solid #e0e0e0;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .fup-thumb-img {
+    background: #2c2c2e;
+    border: 1px solid #3a3a3c;
+  }
+}
+
+/* ─── Responsive: narrow screens ─────────────────────────── */
+
+@media (max-width: 600px) {
+  .fup-row {
+    grid-template-columns: 56px 110px 36px 1fr;
+  }
+
+  .fup-cell {
+    font-size: 11px;
+  }
+
+  .fup-time {
+    font-size: 10px;
+  }
+
+  .fup-thumb-img {
+    width: 48px;
+    height: 48px;
+  }
+
+  .fup-modal {
+    max-height: 90vh;
+  }
+
+  .fup-overlay {
+    padding: 10px;
