@@ -51,6 +51,16 @@ The extension adds a **Scan** button next to usernames when you're browsing any 
 
 ---
 
+## 🏷️ Bonus: Author in Feed extension
+
+A second, separate extension in `author-in-feed/`. On the new Reddit feed it shows each post's author (as a `u/name` link) next to the post's timestamp, so you can see who posted without opening the post.
+
+Install it the same way: **Load unpacked** and select the `author-in-feed/` folder.
+
+> It reads Reddit's current page markup, so it may stop working when Reddit changes its layout.
+
+---
+
 ## 🌐 Website (Next.js)
 
 A standalone web app with the same functionality, deployed as a static site.
@@ -114,6 +124,9 @@ find-user-posts-in-subreddit/
 │   ├── background.js
 │   ├── content.js
 │   └── styles.css
+├── author-in-feed/
+│   ├── manifest.json
+│   └── content.js
 ├── website/
 │   ├── app/
 │   │   ├── layout.tsx
